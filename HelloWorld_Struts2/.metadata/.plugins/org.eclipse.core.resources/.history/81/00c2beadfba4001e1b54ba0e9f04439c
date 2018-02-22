@@ -1,0 +1,16 @@
+package com.bjsxt.struts2.user.action;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+public class UserAction extends ActionSupport {
+	private int type;
+
+	
+
+	@Override
+	public String execute() throws Exception {
+		
+		return ;
+	}
+
+}

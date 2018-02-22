@@ -1,0 +1,41 @@
+package com.bjsxt.bbs2009.service;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Set;
+
+import com.bjsxt.bbs2009.model.Category;
+import com.bjsxt.bbs2009.util.DB;
+
+public class CategoryService {
+	public void add(Category category) {
+		Connection conn = DB.createConnectionion();
+		String sql = "insert into _category values (null, ?, ?)";
+		PreparedStatement ps = DB.prepare(conn, sql);
+		try {
+			ps.setString(1, "JavaSE");
+			ps.setString(2, "JavaSE");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void update(Category category) {
+		
+	}
+	
+	public void delete(Category category) {
+		
+	}
+	
+	public void deleteById(int id) {
+		
+	}
+	
+	public Set<Category> query() {
+		return null;
+	}
+}

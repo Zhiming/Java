@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="GB18030" ?>
+<%@ page language="java" contentType="text/html; charset=GB18030"
+    pageEncoding="GB18030"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GB18030" />
+<title>OGNL表达式语言学习</title>
+</head>
+<body>
+	<ol>
+		<li>property: <s:property value="username"/> </li>
+		<li>property 取值为字符串: <s:property value="'username'"/> </li>
+		<li>property 设定默认值: <s:property value="admin" default="管理员"/> </li>
+		<li>property 设定HTML: <s:property value="'<hr/>'" escape="false"/> </li>
+		
+		<hr />
+		<li>set 设定adminName值（默认为request 和 ActionContext）: <s:set name="adminName" value="username" /></li>
+		<li>set 从request取值: <s:property value="#request.adminName" /></li>
+		<li>set 从ActionContext取值: <s:property value="#adminName" /></li>
+		<li>set 设定范围: <s:set name="adminPassword" value="password" scope="page"/></li>
+		<li>set 从相应范围取值: <%=pageContext.getAttribute("adminPassword") %></li>
+		<li>set 设定var，范围为ActionContext: <s:set name="adminPassword" value="password" var="a"/></li>
+		<li>set 使用#取值: <s:property value="#a"/> </li>
+		<hr />
+		
+		<%--<li>push:<s:set name="myDog" value="new com.bjsxt.struts2.ognl.Dog('oudy')"></s:set></li>
+		<li>
+		push:<s:push value="#myDog">
+			<s:property value="name"/>
+		</s:push>
+		</li>
+		<li>push: <s:property value="name"/></li>
+		--%>
+		
+		<hr />
+		<li>bean 定义bean,并使用param来设定新的属性值:
+			<s:bean name="com.bjsxt.struts2.tags.Dog" >
+				<s:param name="name" value="'dagou'"></s:param>
+			</s:bean>
+		</li>
+		
+		<li>bean 查看debug情况:
+			<s:bean name="com.bjsxt.struts2.tags.Dog" var="myDog">
+				<s:debug />
+			</s:bean>
+		</li>
+		<hr />
+		<li>include 包含文件以及传递参数
+		<s:include value="_include.jsp">
+			
+		</s:include>
+		</li>
+		
+	</ol>
+	
+	
+	
+	
+</body>
+</html>
+
+
+  params :<br />
+    使用property取参数：p1=<s:property value="#parameters.p1"/> <br />
+    使用property取参数：p2=<s:property value="#parameters.p2"/> <br />
+    使用property取参数：p3=<s:property value="#parameters.p3"/> <br />
+

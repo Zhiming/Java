@@ -1,0 +1,10 @@
+#Sun Sep 20 10:10:49 CST 2009
+TOMCAT_HOME=D\:\\share\\tools\\apache-tomcat-6.0.20
+TOMCAT_TEMP=D\:\\share\\tools\\apache-tomcat-6.0.20\\temp
+LIBRARY_PATH="C\:\\Program Files\\Genuitec\\Common\\binary\\com.sun.java.jdk.win32.x86_1.6.0.013\\bin;D\:\\share\\tools\\apache-tomcat-6.0.20\\bin"
+TOMCAT_BASE=D\:\\share\\tools\\apache-tomcat-6.0.20
+ENDORSED_DIRS="D\:\\share\\tools\\apache-tomcat-6.0.20/common/endorsed"
+eclipse.preferences.version=1
+JDK_INSTALLATION_NAME=com.sun.java.jdk.win32.x86_1.6.0.013
+JDK_HOME=C\:\\Program Files\\Genuitec\\Common\\binary\\com.sun.java.jdk.win32.x86_1.6.0.013
+SERVER_ENABLEMENT=true

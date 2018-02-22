@@ -1,0 +1,7 @@
+package com.bjsxt.bbs2009.service;
+
+public class CategoryService {
+	public void add(Category category) {
+		
+	}
+}

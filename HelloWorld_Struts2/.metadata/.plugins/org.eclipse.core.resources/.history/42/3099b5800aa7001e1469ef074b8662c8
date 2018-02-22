@@ -1,0 +1,35 @@
+package com.bjsxt.struts2.theme;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+public class ThemeAction extends ActionSupport {
+
+	private String password;
+
+	private String username;
+
+	public ThemeAction() {
+	}
+
+	public String execute() {
+		this.addFieldError("fielderror.test", "wrong!");
+		return SUCCESS;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+}

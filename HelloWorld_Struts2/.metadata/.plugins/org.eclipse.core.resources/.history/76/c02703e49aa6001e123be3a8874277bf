@@ -1,0 +1,52 @@
+package com.bjsxt.struts2.tags;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+public class TagsAction extends ActionSupport {
+
+	private String password;
+
+	private String username;
+
+
+	public TagsAction() {
+	}
+
+	public String execute() {
+		return SUCCESS;
+	}
+
+	
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	
+
+	public String getUsername() {
+		return username;
+	}
+
+	
+
+	
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	
+}

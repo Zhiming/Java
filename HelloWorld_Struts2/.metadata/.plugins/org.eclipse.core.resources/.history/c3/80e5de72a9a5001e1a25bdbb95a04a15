@@ -1,0 +1,7 @@
+package com.bjsxt.struts2.ognl;
+
+public class Cat {
+	public void miaomiao() {
+		
+	}
+}

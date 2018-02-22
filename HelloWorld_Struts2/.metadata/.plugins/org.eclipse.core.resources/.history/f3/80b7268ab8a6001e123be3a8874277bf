@@ -1,0 +1,232 @@
+﻿<html>
+<head>
+
+  <title>科技管理信息系统</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="../framework/ext-2.2/resources/css/ext-all.css" />
+    
+    <!-- GC -->
+ 	<!-- LIBS -->
+ 	<script type="text/javascript" src="../framework/ext-2.2/adapter/ext/ext-base.js"></script>
+ 	<!-- ENDLIBS -->
+
+    <script type="text/javascript" src="../framework/ext-2.2/ext-all.js"></script>
+  
+   
+	<style type="text/css">
+	html, body {
+        font:normal 12px verdana;
+        margin:0;
+        padding:0;
+        border:0 none;
+        overflow:hidden;
+        height:100%;
+    }
+	p {
+	    margin:5px;
+	}
+    .settings {
+        background-image:url(../shared/icons/fam/folder_wrench.png);
+    }
+    .nav {
+        background-image:url(../shared/icons/fam/folder_go.png);
+    }
+    .go {
+        background-image:url(../shared/icons/fam/rss_go.png);
+    }
+    .cog {
+        background-image:url(../shared/icons/fam/cog_edit.png);
+    }
+    .plugin {
+        background-image:url(../shared/icons/fam/plugin.gif);
+    }
+    .apgo {
+        background-image:url(../shared/icons/fam/application_go.png);
+    }
+    </style>
+	<script type="text/javascript">
+	
+		
+		
+    Ext.onReady(function(){
+    		Ext.BLANK_IMAGE_URL = '../framework/ext-2.2/resources/images/default/s.gif';
+
+        // NOTE: This is an example showing simple state management. During development,
+        // it is generally best to disable state management as dynamically-generated ids
+        // can change across page loads, leading to unpredictable results.  The developer
+        // should ensure that stable state ids are set for stateful components in real apps.
+        Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
+        //初始化tree数据
+       var tabPanel=new Ext.TabPanel({
+                    region:'center',
+                    enableTabScroll: true,
+                    deferredRender:false,
+                    activeTab:0,
+                    items:[{
+                        
+                        title: '首页',
+                        
+                        html:'<iframe id="center2" width="100%" height="100%" src="../portal/portal.html"/>'
+                    }]
+                });
+       var viewport = new Ext.Viewport({
+            layout:'border',
+            items:[
+                new Ext.BoxComponent({ // raw
+                    region:'north',
+                    el: 'north',
+                    height:32
+                }),{
+                    region:'west',
+                    id:'west-panel',
+                    title:'业务功能',
+                    split:true,
+                    width: 200,
+                    minSize: 175,
+                    maxSize: 400,
+                    collapsible: true,
+                    margins:'0 0 0 5',
+                    layout:'accordion',
+                    layoutConfig:{
+                        animate:true
+                    },
+                    items: [
+                    {
+                        contentEl: 'menu1',
+                        title:'各角色入口',
+                        border:false,
+                        iconCls:'nav'
+                    },{
+                    	contentEl: 'menu2',
+                        title:'统计分析',
+                        border:false,
+                        iconCls:'settings'
+                    },{
+                    	contentEl: 'menu3',
+                        title:'组件示例',
+                        border:false,
+                        iconCls:'cog'
+                    }
+                    ]
+                },
+                tabPanel
+             ]
+        });
+        
+          //加入树
+    
+    var open_subFrame = function(node,event){
+		 event.stopEvent();
+		var n = tabPanel.getComponent(node.id);
+		var href=node.attributes["href"];
+		var target=node.attributes["target"];
+    if (!n&&typeof(href)!="undefined"&&href!="") { // 判断是否已经打开该面板
+    	if (typeof(target)!="undefined"&&target!="") {
+    		var win=new Ext.Window(
+					{
+						title:node.text,
+						modal:false,
+						width:800,
+						height:700,
+						maximizable:true,
+				    html:'<iframe  frameborder="0" height="100%" scrolling="auto" width="100%" src="'+href+'"></iframe>'
+				   }
+				);
+				win.show();
+				win.maximize();
+    	}else{
+				tabPanel.add({  
+					region:'center',
+			     title:node.text ,  
+			     id:node.id,  
+			     iconCls: 'tabs',  
+			    margins:'0 4 4 0',  
+			     autoScroll:true,  
+			     autoWidth:true,  
+			     closable:true,  
+			     frame:true,  
+			     html:'<iframe  frameborder="0" height="100%" scrolling="auto" width="100%" src="'+href+'"></iframe>'  
+			 	}).show();  
+			   
+			 }
+			}
+			 tabPanel.setActiveTab(n);	
+	};
+    
+    
+    var customer_manage1=new Ext.tree.AsyncTreeNode({
+		id:"customer_manage1",
+		text:"综合管理"});
+	var customer_manage1_tree=new Ext.tree.TreePanel({
+		renderTo:"menu1",
+		root:customer_manage1,
+		rootVisible:false,
+		loader: new Ext.tree.TreeLoader({
+			url:"menu1.js",
+			baseParams: {
+				lib:"yui"
+			}
+		})
+	});
+	
+	customer_manage1_tree.on("click",open_subFrame);
+	
+	
+	
+	
+	 var sale_manage1=new Ext.tree.AsyncTreeNode({
+		id:"sale_manage1",
+		text:"规划管理"});
+	var sale_manage1_tree=new Ext.tree.TreePanel({
+		renderTo:"menu2",
+		root:sale_manage1,
+		rootVisible:false,
+		loader: new Ext.tree.TreeLoader({url:"menu2.js",baseParams: {lib:'yui'}})
+		//width:100
+	});
+	sale_manage1_tree.on("click",open_subFrame);
+	
+	
+	
+	var work_manage1=new Ext.tree.AsyncTreeNode({
+		id:"work_manage1",
+		text:"立项管理"});
+    
+	var work_manage1_tree=new Ext.tree.TreePanel({
+		renderTo:"menu3",
+		root:work_manage1,
+		rootVisible:false,
+		loader: new Ext.tree.TreeLoader({url:"menu3.js",baseParams: {lib:'yui'}})
+		//width:100
+	});
+	work_manage1_tree.on("click",open_subFrame);
+    
+    });
+ 
+	</script>
+</head>
+<body>
+
+  <div id="menu1">
+    
+  </div>
+  <div id="menu2">
+    
+  </div>
+  <div id="menu3">
+    
+  </div>
+  <div id="north" style="border:0 none;background:#1E4176 url(../../common/images/logo/hd-bg.gif) repeat-x 0 0;padding-top:3px;padding-left:3px;">
+    <p style="font:normal 16px tahoma, arial, sans-serif;color:white;margin:5px;">
+    <img src="../../common/images/logo/logo.jpg" width="60" height="20"/>
+    <font size="4"><b>生产及销售一体化信息管理系统</b></font></p>
+  </div>
+  
+  
+  <div id="props-panel" style="width:200px;height:200px;overflow:hidden;">
+  </div>
+  <div id="south">
+  </div>
+
+ </body>
+</html>

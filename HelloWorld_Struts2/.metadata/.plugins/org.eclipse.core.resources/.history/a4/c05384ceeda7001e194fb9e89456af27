@@ -1,0 +1,28 @@
+package com.bjsxt.bbs2009.service;
+
+import java.util.Set;
+
+import com.bjsxt.bbs2009.model.Category;
+import com.bjsxt.bbs2009.util.DB;
+
+public class CategoryService {
+	public void add(Category category) {
+		Connection conn = DB.getConnection();
+	}
+	
+	public void update(Category category) {
+		
+	}
+	
+	public void delete(Category category) {
+		
+	}
+	
+	public void deleteById(int id) {
+		
+	}
+	
+	public Set<Category> query() {
+		return null;
+	}
+}

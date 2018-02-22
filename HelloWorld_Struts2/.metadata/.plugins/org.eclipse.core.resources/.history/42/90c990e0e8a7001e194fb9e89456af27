@@ -1,0 +1,13 @@
+package com.bjsxt.bbs2009.util;
+
+import java.sql.Connection;
+
+public class DBUtil {
+	public static Connection getConnection() {
+		return null;
+	}
+	
+	public static Statement createStatement() {
+		
+	}
+}

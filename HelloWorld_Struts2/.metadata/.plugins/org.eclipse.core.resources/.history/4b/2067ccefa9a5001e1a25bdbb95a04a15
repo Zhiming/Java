@@ -1,0 +1,5 @@
+package com.bjsxt.struts2.ognl;
+
+public class Dog {
+
+}

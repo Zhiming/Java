@@ -1,0 +1,6 @@
+package com.bjsxt.struts2.user.dto;
+
+public class UserVO {
+	private String name;
+	private int age;
+}

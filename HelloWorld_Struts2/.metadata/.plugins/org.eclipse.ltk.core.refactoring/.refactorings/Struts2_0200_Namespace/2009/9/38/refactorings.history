@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 1 element(s) from project &apos;Struts2_0200_Namespace&apos;&#x0D;&#x0A;- Original project: &apos;Struts2_0200_Namespace&apos;&#x0D;&#x0A;- Original element: &apos;Hello.jsp&apos;" description="Delete element" element1="WebRoot/Hello.jsp" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="1" stamp="1253327818125" subPackages="false" version="1.0"/>
+</session>

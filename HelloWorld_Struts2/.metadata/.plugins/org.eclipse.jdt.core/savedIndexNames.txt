@@ -1,0 +1,19 @@
+INDEX VERSION 1.125+D:\share\0750_Struts2.1.6\src\.metadata\.plugins\org.eclipse.jdt.core
+2549526609.index
+3004551936.index
+2719789444.index
+2116194379.index
+171331153.index
+704760330.index
+3675812121.index
+1741229380.index
+4168978148.index
+2363403669.index
+3878404593.index
+1347907889.index
+305807737.index
+1589816156.index
+2774546879.index
+893701795.index
+820715798.index
+482064399.index
